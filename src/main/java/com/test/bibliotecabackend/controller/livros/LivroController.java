@@ -2,7 +2,6 @@ package com.test.bibliotecabackend.controller.livros;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,13 +13,14 @@ import com.test.bibliotecabackend.repository.LivroRepository;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/api/livro")
 public class LivroController {
 
-    @Autowired
-	LivroRepository livroRepository;
+    private final LivroRepository livroRepository;
 	
 	@ApiOperation(value = "Retorna uma lista de livros")
 	@ApiResponses(value = {
